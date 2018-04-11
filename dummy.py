@@ -12,7 +12,7 @@ session = Session()
 user = User("admin", "password")
 session.add(user)
 
-user = User("python", "python")
+user = User("python", "pythons")
 session.add(user)
 
 user = User("jumpiness", "python")
