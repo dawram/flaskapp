@@ -8,7 +8,9 @@ engine = create_engine('sqlite:///tutorial.db', echo=True)
 
 app = Flask(__name__)
 
-
+@app.route('/charts')
+def charts():
+    return render_template('chart_template.html')
 @app.route('/')
 def home():
     if not session.get('logged_in'):
