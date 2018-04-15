@@ -27,21 +27,24 @@
 	<button id="addData">Add Data</button>
 	<button id="removeData">Remove Data</button>
 	<script>
-        var dupa =  [['01.01.2018',1,2,3],['01.01.2018',1,2,3],['01.01.2018',1,2,3]]
-        for (i=0;i<dupa.length;i++){
-
-        }
+                var randomScalingFactor = function() {
+            return Math.round(Math.random() * 100);
+            //return 0;
+        };
+        var randomColorFactor = function() {
+            return Math.round(Math.random() * 255);
+        };
         var color = Chart.helpers.color;
+        var randomColor = function(opacity) {
+            return 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',' + (opacity || '.3') + ')';};
 		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		var config = {
-
 			type: 'line',
 			data: {
 				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 				datasets: [{
 					label: 'My First dataset',
                     fill: false,
-					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
 						randomScalingFactor(),
@@ -57,8 +60,7 @@
                     {
 					label: 'My Second dataset',
 					fill: false,
-					backgroundColor: window.chartColors.blue,
-					borderColor: window.chartColors.blue,
+					borderColor: window.chartColors.red,
 					data: [
 						randomScalingFactor(),
 						randomScalingFactor(),
@@ -101,7 +103,7 @@
 					}]
 				},
 				bands: {
-                        yValue: 10,
+                        yValue: 50,
                         bandLine: {
                             stroke: 1, //line width
                             colour: "black", //line colour
@@ -110,8 +112,11 @@
                         },
 
                         baseColorGradientColor: [
-                            window.chartColors.yellow,
+                            'rgba(60,190,60)',
+                            'rgba(60,190,60)'
+
                         ]
+
                     }
 
 			}
