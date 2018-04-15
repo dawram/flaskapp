@@ -3,8 +3,9 @@
 
 <head>
 	<title>Line Chart</title>
-	<script src="http://www.chartjs.org/dist/2.7.2/Chart.bundle.js"></script>
-	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	<script src="/../static/Chart.bundle.js"></script>
+	<script src="/../static/utils.js"></script>
+    <script src="/../static/Chart.Bands.js"></script>
 	<style>
 	canvas{
 		-moz-user-select: none;
@@ -26,9 +27,14 @@
 	<button id="addData">Add Data</button>
 	<button id="removeData">Remove Data</button>
 	<script>
+        var dupa =  [['01.01.2018',1,2,3],['01.01.2018',1,2,3],['01.01.2018',1,2,3]]
+        for (i=0;i<dupa.length;i++){
+
+        }
         var color = Chart.helpers.color;
 		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		var config = {
+
 			type: 'line',
 			data: {
 				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -47,36 +53,7 @@
 						randomScalingFactor()
 					]
 				},
-                     {
-				type: 'line',
-				label: 'lower limit',
-				backgroundColor: color(window.chartColors.green).alpha(0.2).rgbString(),
-				borderColor: window.chartColors.grey,
-				data: [
-					-60,
-					-60,
-					-60,
-                    -60,
-                    -60,
-                    -60,
-                    -60
-                ]
-			},
-                    {
-				type: 'line',
-				label: 'upper limit',
-				backgroundColor: color(window.chartColors.green).alpha(0.2).rgbString(),
-				borderColor: window.chartColors.grey,
-				data: [
-					60,
-					60,
-					60,
-                    60,
-                    60,
-                    60,
-                    60
-                ]
-			},
+
                     {
 					label: 'My Second dataset',
 					fill: false,
@@ -104,7 +81,7 @@
 					intersect: false,
 				},
 				hover: {
-					mode: 'nearest',
+					mode: 'dataset',
 					intersect: true
 				},
 				scales: {
@@ -122,7 +99,21 @@
 							labelString: 'Value'
 						}
 					}]
-				}
+				},
+				bands: {
+                        yValue: 10,
+                        bandLine: {
+                            stroke: 1, //line width
+                            colour: "black", //line colour
+                            type: 'dashed', //line shape
+                            label: 'Band line'
+                        },
+
+                        baseColorGradientColor: [
+                            window.chartColors.yellow,
+                        ]
+                    }
+
 			}
 		};
 
